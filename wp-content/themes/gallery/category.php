@@ -11,16 +11,13 @@
  */
 get_header();
 $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
-//var_dump($paged);
+
 ?>
 
     <div class="wrap">
 
         <?php
 
-        //$default_posts_per_page = get_option( 'posts_per_page' );
-        //update_option('posts_per_page', 1);
-       // var_dump(get_option( 'posts_per_page' ));
         $query = new WP_Query( array(
             'paged' => $paged,
             'posts_per_page'=>1,
@@ -29,9 +26,7 @@ $paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
             'cat' => 2,
             'ignore_sticky_posts' => 1
         ) );
-        //$query = new WP_Query(array('post_type' => array('post','page')));
 
-        //var_dump($query);die();
         ?>
 
         <?php if ( $query->have_posts() ) : ?>
